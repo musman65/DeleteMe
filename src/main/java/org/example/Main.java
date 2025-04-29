@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         int[] nums = {0, 19, 2, 3, 421, 321, 1, 21};
-
-        System.out.println(Arrays.toString(bubbleSort(nums)));
+        selectionSort(nums);
+        System.out.println(Arrays.toString(nums));
     }
 
-    public static int[] bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -19,7 +19,25 @@ public class Main {
                 }
             }
         }
+    }
 
-        return arr;
+    public static void selectionSort(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            int minIdx = i;
+            for (int j = i; j < nums.length; j++) {
+                if (nums[j] < nums[minIdx]) {
+                    minIdx = j;
+                }
+            }
+
+            int temp = nums[i];
+            nums[i] = nums[minIdx];
+            nums[minIdx] = temp;
+        }
+    }
+
+    public static void insertionSort(int[] nums) {
+
+
     }
 }
