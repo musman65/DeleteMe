@@ -5,14 +5,19 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         int[] nums = {0, 19, 2, 3, 421, 321, 1, 21};
-        selectionSort(nums);
+        bubbleSort(nums);
         System.out.println(Arrays.toString(nums));
     }
 
     public static void bubbleSort(int[] arr) {
+        bubbleSort(arr, true);
+    }
+
+    public static void bubbleSort(int[] arr, boolean asc) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
+                boolean condition = asc ? (arr[j] > arr[j + 1]) : (arr[j] < arr[j + 1]);
+                if (condition) {
                     int tmp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = tmp;
